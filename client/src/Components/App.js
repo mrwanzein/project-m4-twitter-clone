@@ -11,7 +11,8 @@ import TweetDetails from "./TweetDetails";
 import Profile from "./Profile";
 import SideBar from "./SideBar";
 
-import {CurrentUserContext} from "./CurrentUserContext"; 
+import {CurrentUserContext} from "./CurrentUserContext";
+import LoadingWheel from "./MiniComponents/LoadingWheel";
 
 function App() {
   const {status} = React.useContext(CurrentUserContext);
@@ -23,7 +24,7 @@ function App() {
       <SideBar />
 
       <ComponentsRenderSpace>
-            {status === "loading" ? "loading..." : 
+            {status === "loading" ? <LoadingWheel /> : 
             <Switch>
               <Route exact path='/'>
                 <HomeFeed />
