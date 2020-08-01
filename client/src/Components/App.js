@@ -11,7 +11,11 @@ import TweetDetails from "./TweetDetails";
 import Profile from "./Profile";
 import SideBar from "./SideBar";
 
+import {CurrentUserContext} from "./CurrentUserContext"; 
+
 function App() {
+  const {status} = React.useContext(CurrentUserContext);
+
   return (
     <Container>
     <GlobalStyles />
@@ -19,6 +23,7 @@ function App() {
       <SideBar />
 
       <ComponentsRenderSpace>
+            {status === "loading" ? "loading..." : 
             <Switch>
               <Route exact path='/'>
                 <HomeFeed />
@@ -39,7 +44,7 @@ function App() {
               <Route exact path='/profile/:profileId'>
                 <Profile />
               </Route>
-            </Switch>
+            </Switch>}
       </ComponentsRenderSpace>
     </Router>
     </Container>

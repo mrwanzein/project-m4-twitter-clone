@@ -39,7 +39,7 @@ const AlignLinksRight = styled.div`
 `;
 
 const NavigationLink = styled(NavLink)`
-    font-size: 2.5em;
+    font-size: 1.5em;
     color: black;
     padding: 15px 20px;
     border-radius: 40px;
