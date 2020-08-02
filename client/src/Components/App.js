@@ -59,7 +59,8 @@ const Container = styled.div`
 `;
 
 const ComponentsRenderSpace = styled.div`
-    flex-grow: 1;
+    width: 40vw;
+    border-right: 1px solid lightgray;
 `;
 
 export default App;

@@ -8,8 +8,8 @@ const ErrorScreen = () => {
     return(
         <Wrapper>
             <FaBomb style={{fontSize: "3em"}}/>
-            <h1 style={{fontWeight: "bold"}}>An unknown error has occured.</h1>
-            <p>Please try refreshing the page, or <FakeLink>contact support</FakeLink> if the problem persists</p>
+            <h1 style={{fontWeight: "bold", fontSize: "1.1em"}}>An unknown error has occured.</h1>
+            <p style={{fontSize: "15px", width: "70%"}}>Please try refreshing the page, or <FakeLink>contact support</FakeLink> if the problem persists</p>
         </Wrapper>
     )
 }
@@ -20,7 +20,6 @@ const Wrapper = styled.div`
     justify-content: space-around;
     align-items: center;
     height: 200px;
-    font-size: 1.5em;
     margin-top: 50px;
 `;
 

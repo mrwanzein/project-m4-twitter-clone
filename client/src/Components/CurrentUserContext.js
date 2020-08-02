@@ -13,7 +13,8 @@ export const CurrentUserProvider = ({ children }) => {
         .then(res => res.json())
         .then(data => {
             if(data) {
-                setCurrentUser(data);
+                let {profile} = data;
+                setCurrentUser(profile);
                 setStatus("idle");
             }
         })
