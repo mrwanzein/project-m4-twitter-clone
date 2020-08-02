@@ -10,12 +10,13 @@ import Bookmarks from "./Bookmarks";
 import TweetDetails from "./TweetDetails";
 import Profile from "./Profile";
 import SideBar from "./SideBar";
+import ErrorScreen from "./MiniComponents/ErrorScreen";
 
 import {CurrentUserContext} from "./CurrentUserContext";
 import LoadingWheel from "./MiniComponents/LoadingWheel";
 
 function App() {
-  const {status} = React.useContext(CurrentUserContext);
+  const {status, ErrorHappened} = React.useContext(CurrentUserContext);
 
   return (
     <Container>
@@ -24,7 +25,8 @@ function App() {
       <SideBar />
 
       <ComponentsRenderSpace>
-            {status === "loading" ? <LoadingWheel /> : 
+            {status === "loading" ? <LoadingWheel /> :
+            ErrorHappened.current ? <ErrorScreen /> :
             <Switch>
               <Route exact path='/'>
                 <HomeFeed />
