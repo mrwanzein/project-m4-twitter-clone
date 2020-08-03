@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import moment from 'moment';
 
 import { RiArrowLeftLine } from "react-icons/ri";
@@ -35,7 +35,7 @@ const TweetDetailBig = () => {
             dataStatus === "error" ? <ErrorScreen /> :
             <>
                 <Header>
-                    <RiArrowLeftLine style={{marginLeft: "20px"}}/><Meow>Meow</Meow>
+                    <Link exact to="/"><RiArrowLeftLine style={{marginLeft: "20px"}}/></Link><Meow>Meow</Meow>
                 </Header>
                 <Wrapper>
                     <ul>
@@ -49,7 +49,7 @@ const TweetDetailBig = () => {
                             </span>
                         </li>
                         <li><span style={{fontSize: "1.3em"}}>{data.status}</span></li>
-                        <li><img style={{borderRadius: "10px", maxWidth: "100%"}} src={data.media[0].url} alt="Tweet Media"/></li>
+                        <li>{data.media[0] ? <img style={{borderRadius: "10px", maxWidth: "100%"}} src={data.media[0].url} alt="Tweet Media"/> : null}</li>
                         <li><span>{moment(data.timestamp, moment.ISO_8601).format('LT · MMM DD YYYY ')}· Critter web app</span></li>
                     </ul>
                     <div style={{borderTop: "1px solid lightgray"}}>

@@ -16,7 +16,7 @@ const handleToggleLike = (liked, setLiked, numLikes, setNumlikes) => {
     }
 }
 
-const TweetActions = () => {
+const TweetActions = ({retweeted}) => {
     const [isLiked, setLiked] = React.useState(false);
     const [numLikes, setNumlikes] = React.useState("");
 
@@ -30,7 +30,7 @@ const TweetActions = () => {
                 <RetweetNumBtn>
                     <FiRepeat />
                 </RetweetNumBtn>
-                <NumberIndicator></NumberIndicator>
+                <NumberIndicator>{retweeted ? 1 : null}</NumberIndicator>
             </div>
             
             <div style={{display: "flex", alignItems: "center"}}>

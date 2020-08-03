@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import TweetInput from "./TweetInput";
+import Feed from "./Feed";
 
 const HomeFeed = () => {
     return(
@@ -10,6 +11,7 @@ const HomeFeed = () => {
                 <Home>Home</Home>
             </Header>
             <TweetInput />
+            <Feed />
         </>
     );
 };

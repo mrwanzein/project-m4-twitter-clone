@@ -61,6 +61,7 @@ const Container = styled.div`
 const ComponentsRenderSpace = styled.div`
     width: 40vw;
     border-right: 1px solid lightgray;
+    border-left: 1px solid lightgray;
 `;
 
 export default App;

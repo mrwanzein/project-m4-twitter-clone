@@ -26,7 +26,6 @@ const SideBar = () => {
 const SideBarStyle = styled.div`
     width: 25vw;
     height: 100vh;
-    border-right: 1px solid lightgray;
 `;
 
 const AlignLinksRight = styled.div`
