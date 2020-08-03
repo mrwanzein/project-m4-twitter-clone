@@ -7,7 +7,7 @@ import GlobalStyles from "./GlobalStyles";
 import HomeFeed from "./HomeFeed";
 import Notifications from "./Notifications";
 import Bookmarks from "./Bookmarks";
-import TweetDetails from "./TweetDetails";
+import TweetDetailBig from "./TweetDetails/TweetDetailBig";
 import Profile from "./Profile";
 import SideBar from "./SideBar";
 import ErrorScreen from "./MiniComponents/ErrorScreen";
@@ -41,7 +41,7 @@ function App() {
               </Route>
 
               <Route exact path='/tweet/:tweetId'>
-                <TweetDetails />
+                <TweetDetailBig />
               </Route>
 
               <Route exact path='/profile/:profileId'>

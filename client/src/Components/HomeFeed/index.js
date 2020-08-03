@@ -22,7 +22,6 @@ const Header = styled.div`
 `;
 
 const Home = styled.span`
-    position: relative;
     font-size: 1.3em;
     margin-left: 20px;
     font-weight: bold;
