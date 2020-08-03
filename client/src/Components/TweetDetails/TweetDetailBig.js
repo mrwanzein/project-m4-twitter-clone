@@ -4,8 +4,10 @@ import { useParams } from 'react-router-dom';
 import moment from 'moment';
 
 import { RiArrowLeftLine } from "react-icons/ri";
+
 import LoadingWheel from "../MiniComponents/LoadingWheel";
 import ErrorScreen from "../MiniComponents/ErrorScreen";
+import TweetActions from "../MiniComponents/TweetActions";
 
 const TweetDetailBig = () => {
     const {tweetId} = useParams();
@@ -50,6 +52,9 @@ const TweetDetailBig = () => {
                         <li><img style={{borderRadius: "10px", maxWidth: "100%"}} src={data.media[0].url} alt="Tweet Media"/></li>
                         <li><span>{moment(data.timestamp, moment.ISO_8601).format('LT · MMM DD YYYY ')}· Critter web app</span></li>
                     </ul>
+                    <div style={{borderTop: "1px solid lightgray"}}>
+                        <TweetActions/>
+                    </div>
                 </Wrapper>
             </>
             }
@@ -72,6 +77,7 @@ const Meow = styled.span`
 
 const Wrapper = styled.div`
     margin: 10px;
+    border-bottom: 1px solid lightgray;
 
     ul > li {
         margin: 15px 0;
