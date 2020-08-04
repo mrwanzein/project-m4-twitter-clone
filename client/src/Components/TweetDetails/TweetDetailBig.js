@@ -35,7 +35,7 @@ const TweetDetailBig = () => {
             dataStatus === "error" ? <ErrorScreen /> :
             <>
                 <Header>
-                    <Link exact to="/"><RiArrowLeftLine style={{marginLeft: "20px"}}/></Link><Meow>Meow</Meow>
+                    <Link exact={"true"} to="/"><RiArrowLeftLine style={{marginLeft: "20px"}}/></Link><Meow>Meow</Meow>
                 </Header>
                 <Wrapper>
                     <ul>
