@@ -4,13 +4,42 @@ import styled from 'styled-components';
 import {CurrentUserContext} from "../CurrentUserContext";
 import UnstyledBtn from "../UnstyledButton";
 import {COLORS} from "../constants";
+import LoadingWheel from "../MiniComponents/LoadingWheel";
+
+import Feed from "./Feed";
 
 const TweetInput = () => {
     const {currentUser} = React.useContext(CurrentUserContext);
     const [textTracker, setTextTracker] = React.useState("");
+    const [fetchAfterTweet, setFetchAfterTweet] = React.useState(false);
+    const [isFetchingNewTweet, setIsFetchingNewTweet] = React.useState(false);
     
     const handleCharCount = (e) => {
         setTextTracker(e.target.value);
+    }
+    
+    const handleTweet = (text) => {
+        setIsFetchingNewTweet(true);
+
+        fetch("/api/tweet", {
+            method: "POST",
+            body: JSON.stringify({ status: text }),
+            headers: {
+                Accept: "application/json",
+                "Content-Type": "application/json",
+            },
+        })
+        .then(() => {
+            setIsFetchingNewTweet(false);
+            setTextTracker("");
+            setFetchAfterTweet(!fetchAfterTweet);
+        })
+        .catch(err => {
+            alert("Something went work, please try again");
+            setIsFetchingNewTweet(false);
+            console.log("Error", err);
+        });
+
     }
 
     let color;
@@ -21,6 +50,7 @@ const TweetInput = () => {
     }
 
     return(
+        <>
         <Wrapper>
             <ProfilePicAndInputContainer>
                 <ProfilePic src={currentUser.avatarSrc} alt="Profile Cat"/>
@@ -32,9 +62,13 @@ const TweetInput = () => {
             </ProfilePicAndInputContainer>
             <CharDisplayAndMeow>
                 <CharTracking style={color}>{280 - textTracker.length}</CharTracking>
-                <MeowBtn disabled={textTracker.length > 280 || textTracker.length === 0 ? true : false}>Meow</MeowBtn>
+                <MeowBtn disabled={textTracker.length > 280 || textTracker.length === 0 || isFetchingNewTweet ? true : false}
+                onClick={() => handleTweet(textTracker)}
+                >{isFetchingNewTweet ? <LoadingWheel forButton={{height: "20px", width: "50px"}}/> : "Meow"}</MeowBtn>
             </CharDisplayAndMeow>
         </Wrapper>
+        <Feed fetchAfterTweet={fetchAfterTweet}/>
+        </>
     )
 }
 

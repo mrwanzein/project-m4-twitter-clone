@@ -19,6 +19,7 @@ const Profile = () => {
     const [feedDataStatus, setFeedDataStatus] = React.useState("fetching");
 
     React.useEffect(() => {
+
         if(profileId !== currentUser.handle){
             fetch(`/api/${profileId}/profile`)
             .then(res => res.json())

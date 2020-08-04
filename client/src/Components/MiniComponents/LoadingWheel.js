@@ -2,9 +2,9 @@ import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { FiLoader } from "react-icons/fi";
 
-const LoadingWheel = () => {
+const LoadingWheel = ({forButton}) => {
     return(
-        <Wrapper>
+        <Wrapper style={forButton}>
             <Animate>
                 <FiLoader />
             </Animate>

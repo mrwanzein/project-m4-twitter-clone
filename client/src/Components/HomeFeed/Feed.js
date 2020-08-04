@@ -3,7 +3,7 @@ import TweetDetailFeed from "../TweetDetails/TweetDetailFeed";
 import LoadingWheel from "../MiniComponents/LoadingWheel";
 import ErrorScreen from "../MiniComponents/ErrorScreen";
 
-const Feed = () => {
+const Feed = ({fetchAfterTweet}) => {
     const [data, setData] = React.useState(null);
     const [dataStatus, setDataStatus] = React.useState("fetching");
 
@@ -19,7 +19,7 @@ const Feed = () => {
             setDataStatus("error")
             console.log('Error: ', err)
         })
-    }, []);
+    }, [fetchAfterTweet]);
 
     return (
         <>

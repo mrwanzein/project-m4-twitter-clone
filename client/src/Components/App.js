@@ -45,7 +45,7 @@ function App() {
               </Route>
 
               <Route exact path='/profile/:profileId'>
-                <Profile />
+                <Profile key={window.location.pathname}/>
               </Route>
             </Switch>}
       </ComponentsRenderSpace>
