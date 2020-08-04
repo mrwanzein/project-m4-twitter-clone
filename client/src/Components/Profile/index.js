@@ -73,7 +73,7 @@ const Profile = () => {
                 feedDataStatus === "fetching" ? <LoadingWheel /> :
                 feedDataStatus === "error" ? <ErrorScreen /> :
                 feedData.tweetIds.map(id => {
-                    return <TweetDetailFeed key={id} tweet={feedData.tweetsById[id]}/>
+                    return <TweetDetailFeed key={id} tweet={feedData.tweetsById[id]} id={id}/>
                 })
             }
         </>

@@ -27,7 +27,7 @@ const Feed = () => {
                 dataStatus === "fetching" ? <LoadingWheel /> :
                 dataStatus === "error" ? <ErrorScreen /> :
                 data.tweetIds.map(id => {
-                    return <TweetDetailFeed key={id} tweet={data.tweetsById[id]}/>
+                    return <TweetDetailFeed key={id} tweet={data.tweetsById[id]} id={id}/>
                 })
             }
         </>

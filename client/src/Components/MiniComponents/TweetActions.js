@@ -22,11 +22,11 @@ const TweetActions = ({retweeted}) => {
 
     return(
         <Wrapper>
-            <MessageCirlceBtn>
+            <MessageCirlceBtn onClick={(e) => e.stopPropagation()} onKeyPress={(e) => {e.stopPropagation(); e.preventDefault()}}>
                 <FiMessageCircle />
             </MessageCirlceBtn>
             
-            <div style={{display: "flex", alignItems: "center"}}>
+            <div style={{display: "flex", alignItems: "center"}} onClick={(e) => e.stopPropagation()} onKeyPress={(e) => {e.stopPropagation(); e.preventDefault()}}>
                 <RetweetNumBtn>
                     <FiRepeat />
                 </RetweetNumBtn>
@@ -34,15 +34,25 @@ const TweetActions = ({retweeted}) => {
             </div>
             
             <div style={{display: "flex", alignItems: "center"}}>
-                <LikeBtn onClick={() => {
+                <LikeBtn onClick={(e) => {
+                    e.stopPropagation();
                     handleToggleLike(isLiked, setLiked, numLikes, setNumlikes);
-                }}>
+                }}
+                
+                onKeyPress={(e) => {
+                    if(e.key === "Enter"){
+                        e.preventDefault();
+                        e.stopPropagation();
+                        handleToggleLike(isLiked, setLiked, numLikes, setNumlikes);
+                    }
+                }}
+                >
                     {Number(numLikes) > 0 ? <FcLike style={{fontSize: "1.1em"}}/> : <FiHeart />}
                 </LikeBtn>
                 <NumberIndicator>{numLikes === 0 ? "" : numLikes}</NumberIndicator>
             </div>
             
-            <ShareBtn>
+            <ShareBtn onClick={(e) => e.stopPropagation()} onKeyPress={(e) => {e.stopPropagation(); e.preventDefault()}}>
                 <FiShare />
             </ShareBtn>
         </Wrapper>
